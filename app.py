@@ -1,7 +1,6 @@
 import sqlite3
 
 def init_db():
-    """Создает базу данных и наполняет её тестовыми местами"""
     conn = sqlite3.connect('parking.db')
     cursor = conn.cursor()
     cursor.execute('''
@@ -21,7 +20,6 @@ def init_db():
     conn.close()
 
 def check_and_book_spot(spot_id):
-    """Имитирует обработку API-запроса и делает выборку из БД"""
     conn = sqlite3.connect('parking.db')
     cursor = conn.cursor()
     cursor.execute("SELECT spot_number, level FROM parking_spots WHERE spot_id = ?", (spot_id,))
